@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Futebol.UI.Models.TimeVM>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Times</h2>
+
+<p>
+    @Html.ActionLink("Criar Novo", "Criar")
+</p>
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="col-md-3">
+                        <img src="@item.ImagemUrl" class="img-responsive center-block" style="max-height: 160px;" />
+                    </div>
+                    <div class="col-md-9">
+                        <strong class="h4">@item.Nome</strong>
+                        <br />
+                        <span class="h5">@item.Sigla</span>
+                        <br />
+                        @Html.ActionLink("Detalhar", "Detalhar", new { id = item.TimeId }) |
+                        @Html.ActionLink("Editar", "Editar", new { id = item.TimeId }) |
+                        @Html.ActionLink("Remover", "Remover", new { id = item.TimeId }, new { @class="text-danger" })
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

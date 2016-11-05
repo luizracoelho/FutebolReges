@@ -1,0 +1,26 @@
+﻿@model Futebol.UI.Models.TimeVM
+
+@{
+    ViewBag.Title = "Detalhar";
+}
+
+<h2>Detalhar</h2>
+
+<div class="container">
+    <div class="row">
+        <h4>Time</h4>
+        <hr />
+        <div class="col-md-3">
+            <img src="@Model.ImagemUrl" class="img-responsive" />
+        </div>
+        <div class="col-md-9">
+            <strong class="h1">@Html.DisplayFor(model => model.Nome)</strong>
+            <br />
+            <span class="h2 text-muted">@Html.DisplayFor(model => model.Sigla)</span>
+            <p>
+                @Html.ActionLink("Editar", "Editar", new { id = Model.TimeId }) |
+                @Html.ActionLink("Voltar para Lista", "Index")
+            </p>
+        </div>
+    </div>
+</div>

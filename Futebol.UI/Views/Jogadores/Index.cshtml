@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Futebol.UI.Models.JogadorVM>
+
+@{
+    ViewBag.Title = "Jogadores";
+}
+
+<h2>Jogadores</h2>
+
+<p>
+    @Html.ActionLink("Criar Novo", "Criar")
+</p>
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="col-md-3">
+                        <img src="@item.ImagemUrl" class="img-responsive center-block" style="max-height: 160px;" />
+                    </div>
+                    <div class="col-md-9">
+                        <p>
+                            <div class="col-xs-2 text-center">
+                                <span class="label label-info">@item.Posicao.Sigla</span>
+                            </div>
+                            <div class="col-xs-10">
+                                <strong class="h4">@item.Nome</strong>
+                            </div>
+                        </p>
+                        <br />
+                        <p>
+                            <div class="col-xs-2">
+                                <img src="@item.Time.ImagemUrl" class="center-block" style="max-height: 24px;" />
+                            </div>
+                            <div class="col-xs-10">
+                                <span class="h5" style="line-height: 24px;">@item.Time.Nome</span>
+                            </div>
+                        </p>
+                        <br />
+                        <br />
+                        <p class="col-xs-12">
+                            @Html.ActionLink("Detalhar", "Detalhar", new { id = item.JogadorId }) |
+                            @Html.ActionLink("Editar", "Editar", new { id = item.JogadorId }) |
+                            @Html.ActionLink("Remover", "Remover", new { id = item.JogadorId }, new { @class = "text-danger" })
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

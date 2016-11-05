@@ -1,0 +1,44 @@
+﻿@model Futebol.UI.Models.PosicaoVM
+
+@{
+    ViewBag.Title = "Remover";
+}
+
+<h2>Remover</h2>
+
+<h3>Deseja realmente remover esta posição?</h3>
+<div>
+    <h4>Posição</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descricao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sigla)
+        </dt>
+
+        <dd>
+            <span class="label label-info">
+                @Html.DisplayFor(model => model.Sigla)
+            </span>
+        </dd>
+
+    </dl>
+</div>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-actions no-color">
+        <input type="submit" value="Remover" class="btn btn-danger" /> |
+        @Html.ActionLink("Voltar para Lista", "Index")
+    </div>
+}
+</div>

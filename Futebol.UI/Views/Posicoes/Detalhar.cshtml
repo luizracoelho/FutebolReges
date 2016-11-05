@@ -1,0 +1,36 @@
+﻿@model Futebol.UI.Models.PosicaoVM
+
+@{
+    ViewBag.Title = "Detalhar";
+}
+
+<h2>Detalhar</h2>
+
+<div>
+    <h4>Posição</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descricao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sigla)
+        </dt>
+
+        <dd>
+            <span class="label label-info">
+                @Html.DisplayFor(model => model.Sigla)
+            </span>
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Editar", new { id = Model.PosicaoId }) |
+    @Html.ActionLink("Voltar para Lista", "Index")
+</p>

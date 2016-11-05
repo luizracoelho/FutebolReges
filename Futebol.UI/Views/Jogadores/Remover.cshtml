@@ -1,0 +1,49 @@
+﻿@model Futebol.UI.Models.JogadorVM
+
+@{
+    ViewBag.Title = "Remover";
+}
+
+<h2>Remover</h2>
+
+<h3>Deseja realmente remover este jogador?</h3>
+
+<div class="container">
+    <div class="row">
+        <h4>Jogador</h4>
+        <hr />
+        <div class="col-md-3">
+            <img src="@Model.ImagemUrl" class="img-responsive" />
+        </div>
+        <div class="col-md-9">
+            <div class="row">
+                <div class="col-xs-1 text-center">
+                    <span class="h3" style="line-height: 48px;"><span class="label label-info">@Model.Posicao.Sigla</span></span>
+                </div>
+                <div class="col-xs-11">
+                    <strong class="h1" style="line-height: 48px;">@Html.DisplayFor(model => model.Nome)</strong>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-1">
+                    <img src="@Model.Time.ImagemUrl" class="center-block" style="max-height: 48px;" />
+                </div>
+                <div class="col-xs-11">
+                    <span class="h2 text-muted" style="line-height: 48px;">@Html.DisplayFor(model => model.Time.Nome)</span>
+                </div>
+            </div>
+            <br />
+            <p>
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-actions no-color">
+                        <input type="submit" value="Remover" class="btn btn-danger" /> |
+                        @Html.ActionLink("Voltar para Lista", "Index")
+                    </div>
+                }
+            </p>
+        </div>
+    </div>
+</div>

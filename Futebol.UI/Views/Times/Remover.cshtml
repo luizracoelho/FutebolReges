@@ -1,0 +1,34 @@
+﻿@model Futebol.UI.Models.TimeVM
+
+@{
+    ViewBag.Title = "Remover";
+}
+
+<h2>Remover</h2>
+
+<h3>Deseja realmente remover este time?</h3>
+<div class="container">
+    <div class="row">
+        <h4>Time</h4>
+        <hr />
+        <div class="col-md-3">
+            <img src="@Model.ImagemUrl" class="img-responsive" />
+        </div>
+        <div class="col-md-9">
+            <strong class="h1">@Html.DisplayFor(model => model.Nome)</strong>
+            <br />
+            <span class="h2 text-muted">@Html.DisplayFor(model => model.Sigla)</span>
+            <p>
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-actions no-color">
+                        <input type="submit" value="Remover" class="btn btn-danger" /> |
+                        @Html.ActionLink("Voltar para Lista", "Index")
+                    </div>
+                }
+            </p>
+        </div>
+    </div>
+</div>
